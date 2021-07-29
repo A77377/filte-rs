@@ -1,0 +1,23 @@
+[package]
+authors = ["Pedro a77377@alunos.uminho.pt"]
+edition = "2018"
+name = "apbf"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+# Default features
+default = ["count_if_new_in_cur_gen", "printers"]
+# Allows the use of double hashing to reuse calculated hashes for the various slice insertions.
+double_hashing = []
+# When inserting, only allows the increment of the count of inserted items in the APBF if it is new
+# in the current generation. This feature exists because otherwise it would be possible to change
+# generation and cause slice shifts even if inserting the same item repeatedly.
+count_if_new_in_cur_gen = []
+# Allows the compilation of functions that print the APBF structs.
+printers = []
+
+[dependencies]
+math = "0.1.0"
+t1ha = "0.1.0"
